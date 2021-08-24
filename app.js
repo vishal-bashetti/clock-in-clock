@@ -357,9 +357,26 @@ let id = 0;
 function start() {
   id = window.setInterval(time, 5000);
 }
-start();
 
 function stop() {
   window.clearInterval(id);
   console.log("stoped");
 }
+
+//0
+let clkHR = document.getElementsByClassName("hr");
+let arrayClkHr = Array.from(clkHR);
+for (let i = 0; i < arrayClkHr.length; i++) {
+  let hh = numbers[count][i].hour * 6;
+  arrayClkHr[i].style.transform = `rotateZ(${hh * 5 + 360}deg)`;
+}
+
+let clkMN = document.getElementsByClassName("mn");
+let arrayClkMn = Array.from(clkMN);
+
+for (let i = 0; i < arrayClkMn.length; i++) {
+  let mm = numbers[count][i].minute * 6;
+  arrayClkMn[i].style.transform = `rotateZ(${mm * 5 + 360}deg)`;
+}
+count++;
+start();
